@@ -1,15 +1,14 @@
-# Directivas incorporadas
+# Directivas integradas
 
-Angular ofrece dos tipos de directivas incorporadas: [directivas de _atributo_](guide/attribute-directives) y [directivas de _estructura_](guide/structural-directives).
+Angular ofrece dos tipos de directivas integradas: [directivas de _atributo_](guide/attribute-directives) y [directivas de _estructura_](guide/structural-directives).
 
 <div class="alert is-helpful">
 
-See the <live-example></live-example> for a working example containing the code snippets in this guide.
-Vea el <live-example></live-example> para un ejemplo ejecutandose que contiene la porción de codigo en esta guía.
+Vea el <live-example></live-example> para un ejemplo ejecutable conteniendo las porciones de codigo en esta guía.
 
 </div>
 
-For more detail, including how to build your own custom directives, see [Attribute Directives](guide/attribute-directives) and [Structural Directives](guide/structural-directives).
+Para más detalles, incluyendo cómo construir tus propias directivas personalizadas, vea [Attribute Directives](guide/attribute-directives) and [Structural Directives](guide/structural-directives).
 
 <hr/>
 
