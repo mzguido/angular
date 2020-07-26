@@ -1,10 +1,11 @@
-# Built-in directives
+# Directivas incorporadas
 
-Angular offers two kinds of built-in directives: [_attribute_ directives](guide/attribute-directives) and [_structural_ directives](guide/structural-directives).
+Angular ofrece dos tipos de directivas incorporadas: [directivas de _atributo_](guide/attribute-directives) y [directivas de _estructura_](guide/structural-directives).
 
 <div class="alert is-helpful">
 
 See the <live-example></live-example> for a working example containing the code snippets in this guide.
+Vea el <live-example></live-example> para un ejemplo ejecutandose que contiene la porción de codigo en esta guía.
 
 </div>
 
