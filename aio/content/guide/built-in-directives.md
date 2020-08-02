@@ -4,29 +4,30 @@ Angular ofrece dos tipos de directivas integradas: [directivas de _atributo_](gu
 
 <div class="alert is-helpful">
 
-Vea el <live-example></live-example> para un ejemplo ejecutable conteniendo las porciones de codigo en esta guía.
+Ve el <live-example></live-example> para un ejemplo ejecutable conteniendo las porciones de código en esta guía.
 
 </div>
 
-Para más detalles, incluyendo cómo construir tus propias directivas personalizadas, vea [Attribute Directives](guide/attribute-directives) and [Structural Directives](guide/structural-directives).
+Para más detalles, incluyendo cómo construir tus propias directivas personalizadas, ve [Directivas de Atributo](guide/attribute-directives) and [Structural Directives](guide/structural-directives).
 
 <hr/>
 
 {@a attribute-directives}
 
-## Built-in attribute directives
+## Directivas integradas de atributo
 
-Attribute directives listen to and modify the behavior of
-other HTML elements, attributes, properties, and components.
-You usually apply them to elements as if they were HTML attributes, hence the name.
+Las directivas de atributo escuchan y modifican el comportamiento de
+otros elementos HTML, atributos, propiedades, y componentes.
 
-Many NgModules such as the [`RouterModule`](guide/router "Routing and Navigation")
-and the [`FormsModule`](guide/forms "Forms") define their own attribute directives.
-The most common attribute directives are as follows:
+Por lo general, los aplica a los elementos como si fueran atributos HTML, de ahí el nombre.
 
-* [`NgClass`](guide/built-in-directives#ngClass)&mdash;adds and removes a set of CSS classes.
-* [`NgStyle`](guide/built-in-directives#ngStyle)&mdash;adds and removes a set of HTML styles.
-* [`NgModel`](guide/built-in-directives#ngModel)&mdash;adds two-way data binding to an HTML form element.
+Muchos NgModules como el [`RouterModule`](guide/router "Routing and Navigation")
+y el [`FormsModule`](guide/forms "Forms") definen sus propias directivas de atributos.
+Las directivas de atributos más comunes son las siguientes:
+
+* [`NgClass`](guide/built-in-directives#ngClass)&mdash;agrega y elimina un conjunto de clases CSS.
+* [`NgStyle`](guide/built-in-directives#ngStyle)&mdash;agrega y elimina un conjunto de estilos HTML.
+* [`NgModel`](guide/built-in-directives#ngModel)&mdash;agrega enlace de datos bidireccional a un elemento formulario HTML.
 
 <hr/>
 
@@ -34,7 +35,7 @@ The most common attribute directives are as follows:
 
 ## `NgClass`
 
-Add or remove several CSS classes simultaneously with `ngClass`.
+Agrega o elimina varias clases CSS simultáneamente con `ngClass`.
 
 <code-example path="built-in-directives/src/app/app.component.html" region="special-div" header="src/app/app.component.html"></code-example>
 
