@@ -194,7 +194,7 @@ No tienes que publicar tu librería hacia el gestor de paquetes npm para usarla 
 
 Para usar tu propia librería en tu aplicación:
 
-* Construye la librería. Tu no puedes usar una librería antes que se construya.
+* Construye la librería. No puedes usar una librería antes que se construya.
  <code-example language="bash">
  ng build my-lib
  </code-example>
