@@ -95,7 +95,7 @@ Un 'schematic' empaquetado con una librería puede por ejemplo proporcionar al A
 
 Un ejemplo de esto es el 'schematic' de navegación de Angular Material el cual configura los CDK's `BreakpointObserver` y lo usa con los componentes `MatSideNav` y `MatToolbar` de Angular Material.
 
-Tu puedes crear e incluir los siguientes tipos de 'schematics'.
+Puedes crear e incluir los siguientes tipos de 'schematics'.
 
 * Incluye un 'schematic' de instalación para que con `ng add` puedas agregar tu libería a un proyecto.
 
