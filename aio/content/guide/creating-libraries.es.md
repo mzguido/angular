@@ -211,7 +211,7 @@ Por ejemplo, si tu clonas tu repositorio git y corres `npm install`, tu editor m
 
 <div class="alert is-helpful">
 
-Cuando tu importas algo desde una librería en una aplicación Angular, Angular busca un mapeo entre el nombre de librería y una ubicación en disco.
+Cuando importas algo desde una librería en una aplicación Angular, Angular busca un mapeo entre el nombre de librería y una ubicación en disco.
 Cuando instalas un paquete de librería, el mapeo esta en la carpeta `node_modules`. Cuando construyes tu propia librería, tiene que encontrar el mapeo en tus rutas de `tsconfig`.
 
 Generando una librería con el Angular CLI automáticamente agrega su ruta en el archivo `tsconfig`.
