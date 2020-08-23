@@ -190,7 +190,7 @@ Este mapeador garantiza que tu librería siempre cargue las copias locales del m
 
 ## Usando tu propia librería en aplicaciones.
 
-Tu no tienes que publicar tu librería hacia el gestor de paquetes npm para usarla en tus propias aplicaciones, pero tu tienes que construirla primero.
+No tienes que publicar tu librería hacia el gestor de paquetes npm para usarla en tus propias aplicaciones, pero tienes que construirla primero.
 
 Para usar tu propia librería en tu aplicación:
 
