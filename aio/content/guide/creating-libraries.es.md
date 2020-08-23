@@ -52,9 +52,9 @@ Puedes crear, probar y comprobar con los comandos de CLI:
 Puedes notar que el constructor configurado para el proyecto es diferente que el constructor por defecto para proyectos.
 El constructor, entre otras cosas, asegura que la librería siempre este construida con el [compilador AOT](guide/aot-compiler), sin la necesidad de especificar la bandera `--prod`.
 
-Para hacer el código de la librería reusable debes definir una API publica para ella. Esta "capa de usuario" define que esta disponible para los consumidores de tu librería. Un usuario de tu librería debería ser capaz de acceder a la funcionalidad publica (como NgModules, servicios, proveedores y en general funciones de utilidad) mediante una sola ruta.
+Para hacer el código de la librería reusable debes definir una API pública para ella. Esta "capa de usuario" define que esta disponible para los consumidores de tu librería. Un usuario de tu librería debería ser capaz de acceder a la funcionalidad publica (como NgModules, servicios, proveedores y en general funciones de utilidad) mediante una sola ruta.
 
-La API publica para tu librería es mantenida en el archivo `public-api.ts` en tu capeta de librería.
+La API pública para tu librería es mantenida en el archivo `public-api.ts` en tu carpeta de librería.
 Cualquier cosa exportada desde este archivo se hace publica cuando tu librería es importada dentro de una aplicación.
 Usa un NgModule para exponer los servicios y componentes.
 
@@ -65,7 +65,7 @@ Tu libería debería suministrar documentatión (típicamente en el archivo READ
 Para hacer tu solución reusable, necesitas ajustarla para que no dependa del código específico de la aplicación.
 Aquí algunas cosas para considerar al migrar la funcionalidad de la aplicación a una librería.
 
-* Declaraciones tales como componentes y tuberías deberían ser diseñados como 'stateless' (sin estado), lo que significa que no dependen ni alteran variables externas. Si tu dependes del estado, tu necesitas evaluar cada caso y decidir el estado de la aplicación o el estado que la aplicación administraría.
+* Declaraciones tales como componentes y tuberías deberían ser diseñados como 'stateless' (sin estado), lo que significa que no dependen ni alteran variables externas. Si tu dependes del estado, necesitas evaluar cada caso y decidir el estado de la aplicación o el estado que la aplicación administraría.
 
 * Cualquier observable al cual los componentes se suscriban internamente deberían ser limpiados y desechados durante el ciclo de vida de esos componentes.
 
@@ -76,17 +76,17 @@ Aquí algunas cosas para considerar al migrar la funcionalidad de la aplicación
    * Del mismo modo, si tu código de librería depende de un servicio, este servicio necesita ser migrado.
    * Si tu código de librería o sus plantillas dependen de otras librerías (como Angular Material), debes configurar tu librería con esas dependencias.
 
-* Considere como tu proporcionas servicios a las aplicaciones cliente.
+* Considere como proporcionar servicios a las aplicaciones cliente.
 
    * Los servicios deberían declarar sus propios proveedores (en lugar de declarar los proveedores en el NgModule o en un componente). Esto le permite al compilador dejar los servicios fuera del 'bundle' si este nunca fue inyectado dentro de la aplicación que importa la librería, véase [proveedores Tree-shakable](guide/dependency-injection-providers#tree-shakable-providers)
-   * Si tu registras proveedores globales o compartes proveedores a través de multiples NgModules, usa el [`forRoot()` y `forChild()` como patrones de diseño](guide/singleton-services) proporcionados por el [RouterModule](api/router/RouterModule).
-   * Si tu libería proporciona servicios opcionales que podrían no ser usados por todos las aplicaciones cliente, soporte apropiadamente el 'tree-shaking' para esos casos usando el [patrón de diseño de token ligero](guide/lightweight-injection-tokens).
+   * Si registras proveedores globales o compartes proveedores a través de múltiples NgModules, usa el [`forRoot()` y `forChild()` como patrones de diseño](guide/singleton-services) proporcionados por el [RouterModule](api/router/RouterModule).
+   * Si tu librería proporciona servicios opcionales que podrían no ser usados por todos las aplicaciones cliente, soporte apropiadamente el 'tree-shaking' para esos casos usando el [patrón de diseño de token ligero](guide/lightweight-injection-tokens).
 
 {@a integrating-with-the-cli}
 
 ## Integración con el CLI usando generación de código con los schematics.
 
-Comúnmente una libería incluye *código reusable* que define componentes, servicios y otros Artefactos de Angular (tuberías, directivas y etc.) que tu simplemente importas a un proyecto.
+Comúnmente una librería incluye *código reusable* que define componentes, servicios y otros Artefactos de Angular (tuberías, directivas y etc.) que tu simplemente importas a un proyecto.
 Una librería es empaquetada dentro de un paquete npm para publicar y compartir.
 
 Este paquete también puede incluir [schematics](guide/glossary#schematic) que proporciona instrucciones para generar o transformar código directamente un tu proyecto, de la misma forma que el CLI crea un nuevo componente genérico con `ng generate component`.
@@ -95,7 +95,7 @@ Un 'schematic' empaquetado con una librería puede por ejemplo proporcionar al A
 
 Un ejemplo de esto es el 'schematic' de navegación de Angular Material el cual configura los CDK's `BreakpointObserver` y lo usa con los componentes `MatSideNav` y `MatToolbar` de Angular Material.
 
-Tu puedes crear e incluir los siguientes tipos de 'schematics'.
+Puedes crear e incluir los siguientes tipos de 'schematics'.
 
 * Incluye un 'schematic' de instalación para que con `ng add` puedas agregar tu libería a un proyecto.
 
@@ -104,8 +104,8 @@ Tu puedes crear e incluir los siguientes tipos de 'schematics'.
 * Incluye un 'schematic' de actualización para que con `ng update` puedas actualizar las dependencias de tu librería y proporcionar migraciones para cambios importantes en un nuevo release.
 
 Lo que incluya tu librería depende de tu tarea.
-Por ejemplo, tu podrías definir un 'schematic' para crear un desplegable (dropdown) que esta pre-poblado con datos para mostrar como agregarlo a una aplicación.
-Si tu quieres un desplegable (dropdown) que contendrá valores diferentes cada vez, tu librería podría definir un 'schematic' para crearlo con una configuración dada. Los desarrolladores podrán entonces usar `ng generate` para configurar una instancia para sus propias aplicaciones.
+Por ejemplo, podrías definir un 'schematic' para crear un desplegable (dropdown) que esta pre-poblado con datos para mostrar como agregarlo a una aplicación.
+Si quieres un desplegable (dropdown) que contendrá valores diferentes cada vez, tu librería podría definir un 'schematic' para crearlo con una configuración dada. Los desarrolladores podrán entonces usar `ng generate` para configurar una instancia para sus propias aplicaciones.
 
 Supón que quieres leer un archivo de configuración y entonces generar una formulario con base a la configuración.
 Si este formulario necesita personalización adicional por parte del desarrollador que esta usando tu librería, esto podría trabajar mejor como un 'schematic'.
@@ -126,7 +126,7 @@ cd dist/my-lib
 npm publish
 </code-example>
 
-Si tu nunca has publicado un paquete en npm antes, tu debes crear un cuenta. Lee más en [Publicando paquetes npm](https://docs.npmjs.com/getting-started/publishing-npm-packages).
+Si nunca has publicado un paquete en npm antes, tu debes crear un cuenta. Lee más en [Publicando paquetes npm](https://docs.npmjs.com/getting-started/publishing-npm-packages).
 
 <div class="alert is-important">
 
@@ -150,7 +150,7 @@ Puedes usar esta característica cuando tu librería necesite publicar archivos 
 
 ## Vinculando librerías
 
-Mientras trabajas en un libería publicada, tu puedes usar [npm link](https://docs.npmjs.com/cli/link) para evitar re instalar la librería en cada construcción.
+Mientras trabajas en un librería publicada, puedes usar [npm link](https://docs.npmjs.com/cli/link) para evitar re instalar la librería en cada construcción.
 
 La librería debe ser reconstruida en cada cambio.
 Cuando vinculas una librería, asegurate que el paso de construir corra en modo vigía (watch mode) y que el `package.json` de la librería configure los puntos de entrada correctos.
@@ -190,11 +190,11 @@ Este mapeador garantiza que tu librería siempre cargue las copias locales del m
 
 ## Usando tu propia librería en aplicaciones.
 
-Tu no tienes que publicar tu librería hacia el gestor de paquetes npm para usarla en tus propias aplicaciones, pero tu tienes que construirla primero.
+No tienes que publicar tu librería hacia el gestor de paquetes npm para usarla en tus propias aplicaciones, pero tienes que construirla primero.
 
 Para usar tu propia librería en tu aplicación:
 
-* Construye la librería. Tu no puedes usar una librería antes que se construya.
+* Construye la librería. No puedes usar una librería antes que se construya.
  <code-example language="bash">
  ng build my-lib
  </code-example>
@@ -206,22 +206,22 @@ Para usar tu propia librería en tu aplicación:
 
 ### Construyendo y re construyendo tu librería.
 
-El paso de construir es importante si tu no tiene publicada tu librería como un paquete npm y luego ha instalado el paquete de nuevo dentro tu aplicación desde npm.
-Por ejemplo, si tu clonas tu repositorio git y corres `npm install`, tu editor mostrará la importación de `my-lib` como perdida si tu no tienes aun construida tu librería.
+El paso de construir es importante si no tienes publicada tu librería como un paquete npm y luego ha instalado el paquete de nuevo dentro tu aplicación desde npm.
+Por ejemplo, si clonas tu repositorio git y corres `npm install`, tu editor mostrará la importación de `my-lib` como perdida si no tienes aun construida tu librería.
 
 <div class="alert is-helpful">
 
-Cuando tu importas algo desde una librería en una aplicación Angular, Angular busca un mapeo entre el nombre de librería y una ubicación en disco.
-Cuando tu instalas un paquete de librería, el mapeo esta en la carpeta `node_modules`. Cuando tu construyes tu propia librería, tiene que encontrar el mapeo en tus rutas de `tsconfig`.
+Cuando importas algo desde una librería en una aplicación Angular, Angular busca un mapeo entre el nombre de librería y una ubicación en disco.
+Cuando instalas un paquete de librería, el mapeo esta en la carpeta `node_modules`. Cuando construyes tu propia librería, tiene que encontrar el mapeo en tus rutas de `tsconfig`.
 
 Generando una librería con el Angular CLI automáticamente agrega su ruta en el archivo `tsconfig`.
 El Angular CLI usa las rutas `tsconfig` para indicarle al sistema construido donde encontrar la librería.
 
 </div>
 
-Si tu descubres que los cambios en tu librería no son reflejados en tu aplicación, tu aplicación probablemente esta usando una construcción antigua de la librería.
+Si descubres que los cambios en tu librería no son reflejados en tu aplicación, tu aplicación probablemente esta usando una construcción antigua de la librería.
 
-Tu puedes re construir tu librería cada vez que hagas cambios en esta, pero este paso extra toma tiempo.
+Puedes re construir tu librería cada vez que hagas cambios en esta, pero este paso extra toma tiempo.
 Las *construcciones incrementales* funcionalmente mejoran la experiencia de desarrollo de librerías.
 Cada vez que un archivo es cambiando una construcción parcial es realizada y esta emite los archivos modificados.
 
@@ -236,7 +236,7 @@ ng build my-lib --watch
 El comando `build` del CLI utiliza un constructor diferente e invoca una herramienta de construcción diferente para las librerías que para las aplicaciones.
 
 * El sistema de construcción para aplicaciones, `@angular-devkit/build-angular`, esta basado en `webpack`, y esta incluida en todos los nuevos proyectos de Angular CLI.
-* El sistema de construcción esta basado en `ng-packagr`. Este es solo agregado en tus dependencias cuando tu agregas una librería usando `ng generate library my-lib`.
+* El sistema de construcción esta basado en `ng-packagr`. Este es solo agregado en tus dependencias cuando agregas una librería usando `ng generate library my-lib`.
 
 Los dos sistemas de construcción soportan diferentes cosas e incluso si ellos soportan las mismas cosas, ellos hacen esas cosas de forma diferente.
 Esto quiere decir que la fuente de TypeScript puede generar en código JavaScript diferente en una librería construida que en una aplicación construida.
