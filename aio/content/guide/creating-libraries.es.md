@@ -207,7 +207,7 @@ Para usar tu propia librería en tu aplicación:
 ### Construyendo y re construyendo tu librería.
 
 El paso de construir es importante si tu no tiene publicada tu librería como un paquete npm y luego ha instalado el paquete de nuevo dentro tu aplicación desde npm.
-Por ejemplo, si tu clonas tu repositorio git y corres `npm install`, tu editor mostrará la importación de `my-lib` como perdida si tu no tienes aun construida tu librería.
+Por ejemplo, si clonas tu repositorio git y corres `npm install`, tu editor mostrará la importación de `my-lib` como perdida si no tienes aun construida tu librería.
 
 <div class="alert is-helpful">
 
