@@ -221,7 +221,7 @@ El Angular CLI usa las rutas `tsconfig` para indicarle al sistema construido don
 
 Si tu descubres que los cambios en tu librería no son reflejados en tu aplicación, tu aplicación probablemente esta usando una construcción antigua de la librería.
 
-Tu puedes re construir tu librería cada vez que hagas cambios en esta, pero este paso extra toma tiempo.
+Puedes re construir tu librería cada vez que hagas cambios en esta, pero este paso extra toma tiempo.
 Las *construcciones incrementales* funcionalmente mejoran la experiencia de desarrollo de librerías.
 Cada vez que un archivo es cambiando una construcción parcial es realizada y esta emite los archivos modificados.
 
