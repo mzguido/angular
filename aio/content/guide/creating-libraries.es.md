@@ -105,7 +105,7 @@ Puedes crear e incluir los siguientes tipos de 'schematics'.
 
 Lo que incluya tu librería depende de tu tarea.
 Por ejemplo, podrías definir un 'schematic' para crear un desplegable (dropdown) que esta pre-poblado con datos para mostrar como agregarlo a una aplicación.
-Si tu quieres un desplegable (dropdown) que contendrá valores diferentes cada vez, tu librería podría definir un 'schematic' para crearlo con una configuración dada. Los desarrolladores podrán entonces usar `ng generate` para configurar una instancia para sus propias aplicaciones.
+Si quieres un desplegable (dropdown) que contendrá valores diferentes cada vez, tu librería podría definir un 'schematic' para crearlo con una configuración dada. Los desarrolladores podrán entonces usar `ng generate` para configurar una instancia para sus propias aplicaciones.
 
 Supón que quieres leer un archivo de configuración y entonces generar una formulario con base a la configuración.
 Si este formulario necesita personalización adicional por parte del desarrollador que esta usando tu librería, esto podría trabajar mejor como un 'schematic'.
