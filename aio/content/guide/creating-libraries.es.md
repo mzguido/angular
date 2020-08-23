@@ -76,7 +76,7 @@ Aquí algunas cosas para considerar al migrar la funcionalidad de la aplicación
    * Del mismo modo, si tu código de librería depende de un servicio, este servicio necesita ser migrado.
    * Si tu código de librería o sus plantillas dependen de otras librerías (como Angular Material), debes configurar tu librería con esas dependencias.
 
-* Considere como tu proporcionas servicios a las aplicaciones cliente.
+* Considere como proporcionar servicios a las aplicaciones cliente.
 
    * Los servicios deberían declarar sus propios proveedores (en lugar de declarar los proveedores en el NgModule o en un componente). Esto le permite al compilador dejar los servicios fuera del 'bundle' si este nunca fue inyectado dentro de la aplicación que importa la librería, véase [proveedores Tree-shakable](guide/dependency-injection-providers#tree-shakable-providers)
    * Si tu registras proveedores globales o compartes proveedores a través de multiples NgModules, usa el [`forRoot()` y `forChild()` como patrones de diseño](guide/singleton-services) proporcionados por el [RouterModule](api/router/RouterModule).
