@@ -52,7 +52,7 @@ Puedes crear, probar y comprobar con los comandos de CLI:
 Puedes notar que el constructor configurado para el proyecto es diferente que el constructor por defecto para proyectos.
 El constructor, entre otras cosas, asegura que la librería siempre este construida con el [compilador AOT](guide/aot-compiler), sin la necesidad de especificar la bandera `--prod`.
 
-Para hacer el código de la librería reusable debes definir una API publica para ella. Esta "capa de usuario" define que esta disponible para los consumidores de tu librería. Un usuario de tu librería debería ser capaz de acceder a la funcionalidad publica (como NgModules, servicios, proveedores y en general funciones de utilidad) mediante una sola ruta.
+Para hacer el código de la librería reusable debes definir una API pública para ella. Esta "capa de usuario" define que esta disponible para los consumidores de tu librería. Un usuario de tu librería debería ser capaz de acceder a la funcionalidad publica (como NgModules, servicios, proveedores y en general funciones de utilidad) mediante una sola ruta.
 
 La API pública para tu librería es mantenida en el archivo `public-api.ts` en tu carpeta de librería.
 Cualquier cosa exportada desde este archivo se hace publica cuando tu librería es importada dentro de una aplicación.
