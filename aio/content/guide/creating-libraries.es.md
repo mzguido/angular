@@ -65,7 +65,7 @@ Tu libería debería suministrar documentatión (típicamente en el archivo READ
 Para hacer tu solución reusable, necesitas ajustarla para que no dependa del código específico de la aplicación.
 Aquí algunas cosas para considerar al migrar la funcionalidad de la aplicación a una librería.
 
-* Declaraciones tales como componentes y tuberías deberían ser diseñados como 'stateless' (sin estado), lo que significa que no dependen ni alteran variables externas. Si tu dependes del estado, tu necesitas evaluar cada caso y decidir el estado de la aplicación o el estado que la aplicación administraría.
+* Declaraciones tales como componentes y tuberías deberían ser diseñados como 'stateless' (sin estado), lo que significa que no dependen ni alteran variables externas. Si tu dependes del estado, necesitas evaluar cada caso y decidir el estado de la aplicación o el estado que la aplicación administraría.
 
 * Cualquier observable al cual los componentes se suscriban internamente deberían ser limpiados y desechados durante el ciclo de vida de esos componentes.
 
