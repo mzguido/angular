@@ -86,7 +86,7 @@ Aquí algunas cosas para considerar al migrar la funcionalidad de la aplicación
 
 ## Integración con el CLI usando generación de código con los schematics.
 
-Comúnmente una libería incluye *código reusable* que define componentes, servicios y otros Artefactos de Angular (tuberías, directivas y etc.) que tu simplemente importas a un proyecto.
+Comúnmente una librería incluye *código reusable* que define componentes, servicios y otros Artefactos de Angular (tuberías, directivas y etc.) que tu simplemente importas a un proyecto.
 Una librería es empaquetada dentro de un paquete npm para publicar y compartir.
 
 Este paquete también puede incluir [schematics](guide/glossary#schematic) que proporciona instrucciones para generar o transformar código directamente un tu proyecto, de la misma forma que el CLI crea un nuevo componente genérico con `ng generate component`.
