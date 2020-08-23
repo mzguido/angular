@@ -62,7 +62,7 @@ Tu libería debería suministrar documentatión (típicamente en el archivo READ
 
 ## Refactorizando partes de una app dentro de un librería
 
-Para hacer tu solución reusable, tu necesitas ajustarla para que no dependa del código específico de la aplicación.
+Para hacer tu solución reusable, necesitas ajustarla para que no dependa del código específico de la aplicación.
 Aquí algunas cosas para considerar al migrar la funcionalidad de la aplicación a una librería.
 
 * Declaraciones tales como componentes y tuberías deberían ser diseñados como 'stateless' (sin estado), lo que significa que no dependen ni alteran variables externas. Si tu dependes del estado, tu necesitas evaluar cada caso y decidir el estado de la aplicación o el estado que la aplicación administraría.
