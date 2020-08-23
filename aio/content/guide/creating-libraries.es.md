@@ -79,7 +79,7 @@ Aquí algunas cosas para considerar al migrar la funcionalidad de la aplicación
 * Considere como proporcionar servicios a las aplicaciones cliente.
 
    * Los servicios deberían declarar sus propios proveedores (en lugar de declarar los proveedores en el NgModule o en un componente). Esto le permite al compilador dejar los servicios fuera del 'bundle' si este nunca fue inyectado dentro de la aplicación que importa la librería, véase [proveedores Tree-shakable](guide/dependency-injection-providers#tree-shakable-providers)
-   * Si tu registras proveedores globales o compartes proveedores a través de multiples NgModules, usa el [`forRoot()` y `forChild()` como patrones de diseño](guide/singleton-services) proporcionados por el [RouterModule](api/router/RouterModule).
+   * Si registras proveedores globales o compartes proveedores a través de múltiples NgModules, usa el [`forRoot()` y `forChild()` como patrones de diseño](guide/singleton-services) proporcionados por el [RouterModule](api/router/RouterModule).
    * Si tu libería proporciona servicios opcionales que podrían no ser usados por todos las aplicaciones cliente, soporte apropiadamente el 'tree-shaking' para esos casos usando el [patrón de diseño de token ligero](guide/lightweight-injection-tokens).
 
 {@a integrating-with-the-cli}
