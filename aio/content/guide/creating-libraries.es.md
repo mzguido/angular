@@ -126,7 +126,7 @@ cd dist/my-lib
 npm publish
 </code-example>
 
-Si tu nunca has publicado un paquete en npm antes, tu debes crear un cuenta. Lee más en [Publicando paquetes npm](https://docs.npmjs.com/getting-started/publishing-npm-packages).
+Si nunca has publicado un paquete en npm antes, tu debes crear un cuenta. Lee más en [Publicando paquetes npm](https://docs.npmjs.com/getting-started/publishing-npm-packages).
 
 <div class="alert is-important">
 
