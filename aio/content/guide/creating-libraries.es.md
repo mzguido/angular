@@ -54,7 +54,7 @@ El constructor, entre otras cosas, asegura que la librería siempre este constru
 
 Para hacer el código de la librería reusable debes definir una API publica para ella. Esta "capa de usuario" define que esta disponible para los consumidores de tu librería. Un usuario de tu librería debería ser capaz de acceder a la funcionalidad publica (como NgModules, servicios, proveedores y en general funciones de utilidad) mediante una sola ruta.
 
-La API publica para tu librería es mantenida en el archivo `public-api.ts` en tu capeta de librería.
+La API pública para tu librería es mantenida en el archivo `public-api.ts` en tu carpeta de librería.
 Cualquier cosa exportada desde este archivo se hace publica cuando tu librería es importada dentro de una aplicación.
 Usa un NgModule para exponer los servicios y componentes.
 
