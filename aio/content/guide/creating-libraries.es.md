@@ -150,7 +150,7 @@ Puedes usar esta característica cuando tu librería necesite publicar archivos 
 
 ## Vinculando librerías
 
-Mientras trabajas en un libería publicada, tu puedes usar [npm link](https://docs.npmjs.com/cli/link) para evitar re instalar la librería en cada construcción.
+Mientras trabajas en un librería publicada, puedes usar [npm link](https://docs.npmjs.com/cli/link) para evitar re instalar la librería en cada construcción.
 
 La librería debe ser reconstruida en cada cambio.
 Cuando vinculas una librería, asegurate que el paso de construir corra en modo vigía (watch mode) y que el `package.json` de la librería configure los puntos de entrada correctos.
