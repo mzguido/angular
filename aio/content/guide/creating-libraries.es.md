@@ -236,7 +236,7 @@ ng build my-lib --watch
 El comando `build` del CLI utiliza un constructor diferente e invoca una herramienta de construcción diferente para las librerías que para las aplicaciones.
 
 * El sistema de construcción para aplicaciones, `@angular-devkit/build-angular`, esta basado en `webpack`, y esta incluida en todos los nuevos proyectos de Angular CLI.
-* El sistema de construcción esta basado en `ng-packagr`. Este es solo agregado en tus dependencias cuando tu agregas una librería usando `ng generate library my-lib`.
+* El sistema de construcción esta basado en `ng-packagr`. Este es solo agregado en tus dependencias cuando agregas una librería usando `ng generate library my-lib`.
 
 Los dos sistemas de construcción soportan diferentes cosas e incluso si ellos soportan las mismas cosas, ellos hacen esas cosas de forma diferente.
 Esto quiere decir que la fuente de TypeScript puede generar en código JavaScript diferente en una librería construida que en una aplicación construida.
