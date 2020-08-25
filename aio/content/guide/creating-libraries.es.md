@@ -65,7 +65,7 @@ Tu libería debería suministrar documentatión (típicamente en el archivo READ
 Para hacer tu solución reusable, necesitas ajustarla para que no dependa del código específico de la aplicación.
 Aquí algunas cosas para considerar al migrar la funcionalidad de la aplicación a una librería.
 
-* Declaraciones tales como componentes y tuberías deberían ser diseñados como 'stateless' (sin estado), lo que significa que no dependen ni alteran variables externas. Si tu dependes del estado, necesitas evaluar cada caso y decidir el estado de la aplicación o el estado que la aplicación administraría.
+* Declaraciones tales como componentes y pipes deberían ser diseñados como 'stateless' (sin estado), lo que significa que no dependen ni alteran variables externas. Si tu dependes del estado, necesitas evaluar cada caso y decidir el estado de la aplicación o el estado que la aplicación administraría.
 
 * Cualquier observable al cual los componentes se suscriban internamente deberían ser limpiados y desechados durante el ciclo de vida de esos componentes.
 
@@ -86,7 +86,7 @@ Aquí algunas cosas para considerar al migrar la funcionalidad de la aplicación
 
 ## Integración con el CLI usando generación de código con los schematics.
 
-Comúnmente una librería incluye *código reusable* que define componentes, servicios y otros Artefactos de Angular (tuberías, directivas y etc.) que tu simplemente importas a un proyecto.
+Comúnmente una librería incluye *código reusable* que define componentes, servicios y otros Artefactos de Angular (pipes, directivas y etc.) que tu simplemente importas a un proyecto.
 Una librería es empaquetada dentro de un paquete npm para publicar y compartir.
 
 Este paquete también puede incluir [schematics](guide/glossary#schematic) que proporciona instrucciones para generar o transformar código directamente un tu proyecto, de la misma forma que el CLI crea un nuevo componente genérico con `ng generate component`.
