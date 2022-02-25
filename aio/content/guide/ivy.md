@@ -1,21 +1,21 @@
 # Angular Ivy
 
-Ivy is the code name for Angular's [next-generation compilation and rendering pipeline](https://blog.angular.io/a-plan-for-version-8-0-and-ivy-b3318dfc19f7).
-With the version 9 release of Angular, the new compiler and runtime instructions are used by default instead of the older compiler and runtime, known as View Engine.
+Ivy es el nombre en clave para la [siguiente generación de pipeline de compilación y renderizado](https://blog.angular.io/a-plan-for-version-8-0-and-ivy-b3318dfc19f7).
+Con el lanzamiento de la versión 9 de Angular, el nuevo compilador y entorno de ejecución de instrucciones se utiliza por defecto en lugar de View Engine, el viejo compilador y entorno de ejecución de instrucciones.
 
 <div class="alert is-helpful">
 
-Learn more about the [Compiler](https://www.youtube.com/watch?v=anphffaCZrQ) and [Runtime](https://www.youtube.com/watch?v=S0o-4yc2n-8) in these videos from our team.
-
+Puedes aprender mas acerca del [Compilador](https://www.youtube.com/watch?v=anphffaCZrQ) y [Entorno de ejecución de instrucciones](https://www.youtube.com/watch?v=S0o-4yc2n-8) en estos videos de nuestro equipo.
 
 </div>
 
 {@a aot-and-ivy}
-## AOT and Ivy
 
-AOT compilation with Ivy is faster and should be used by default.
-In the `angular.json` workspace configuration file, set the default build options for your project to always use AOT compilation.
-When using application internationalization (i18n) with Ivy, [translation merging](guide/i18n#merge) also requires the use of AOT compilation.
+## AOT y Ivy
+
+La compilación AOT con Ivy es mas rápida y debe ser usada por defecto.
+En el archivo de configuración de tu espacio de trabajo (`angular.json`), establece las opciones de compilación predeterminadas para que tu proyecto use siempre la compilación AOT.
+Cuando uses una aplicación de internacionalización (i18n) con Ivy, la [fusión de traducciones](guide/i18n#merge) también requiere el uso de compilación AOT.
 
 <code-example language="json" header="angular.json">
 
@@ -35,29 +35,32 @@ When using application internationalization (i18n) with Ivy, [translation mergin
 }
 </code-example>
 
-## Ivy and libraries
+## Ivy y las librerías
 
-Ivy applications can be built with libraries that were created with the View Engine compiler.
-This compatibility is provided by a tool known as the Angular compatibility compiler (`ngcc`).
-CLI commands run `ngcc` as needed when performing an Angular build.
+Las aplicaciones Ivy se pueden crear con librerías creadas con el compilador View Engine.
+Esta compatibilidad es proporcionada por una herramienta de Angular conocida como compilador de compatibilidad (`ngcc`).
+Los comandos de la CLI ejecutar `ngcc` según es necesario en la compilación de Angular.
 
-For more information on how to publish libraries see [Publishing your Library](guide/creating-libraries#publishing-your-library).
+Para mas información sobre cómo publicar una librería, puedes leer [Publicando tu Librería](guide/creating-libraries#publishing-your-library).
 
 {@a maintaining-library-compatibility}
-### Maintaining library compatibility
 
-If you are a library author, you should keep using the View Engine compiler as of version 9.
-By having all libraries continue to use View Engine, you will maintain compatibility with default v9 applications that use Ivy, as well as with applications that have opted to continue using View Engine.
+### Manteniendo la compatibilidad de una librería
 
-See the [Creating Libraries](guide/creating-libraries) guide for more on how to compile or bundle your Angular library.
-When you use the tools integrated into the Angular CLI or `ng-packagr`, your library will always be built the right way automatically.
+Si tu eres el autor de una librería, puedes seguir usando el compilador de View Engine a partir de la version 9.
+Haciendo que todas las librerías continúen usando View Engine, mantendrás la compatibilidad con las aplicaciones v9 predeterminadas que usan Ivy, así como con las aplicaciones que han optado por seguir usando View Engine.
+
+Puedes leer la guía [Creando Librerías](guide/creating-libraries) para más información sobre cómo compilar o agrupar tu Librería Angular.
+Cuando utilizas las herramientas integradas en el Angular CLI o `ng-packagr`, tu biblioteca siempre se construirá de la manera correcta automáticamente.
 
 {@a ivy-and-universal-app-shell}
-## Ivy and Universal/App shell
-In version 9, the server builder which is used for [App shell](guide/app-shell) and [Angular Universal](guide/universal) has the `bundleDependencies` option enabled by default.
-If you opt-out of bundling dependencies you will need to run the standalone Angular compatibility compiler (`ngcc`). This is needed because otherwise Node will be unable to resolve the Ivy version of the packages.
 
-You can run `ngcc` after each installation of node_modules by adding a `postinstall` [npm script](https://docs.npmjs.com/misc/scripts):
+## Ivy y Universal/Armazón de la aplicación
+
+En la versión 9, el constructor del servidor que se usa para [App shell](guide/app-shell) y [Angular Universal](guide/universal) tiene la opción `bundleDependencies` habilitada por defecto.
+Si optas por no agrupar dependencias, deberás ejecutar el compilador de compatibilidad Angular independiente (`ngcc`). Esto es necesario porque, de lo contrario, Node no podrá resolver la versión de Ivy de los paquetes.
+
+Puedes ejecutar el comando `ngcc` después de cada instalación de node_modules agregando el [npm script](https://docs.npmjs.com/misc/scripts) llamado `postinstall` :
 
 <code-example language="json" header="package.json">
 {
@@ -69,28 +72,29 @@ You can run `ngcc` after each installation of node_modules by adding a `postinst
 
 <div class="alert is-important">
 
- * The `postinstall` script will run on every installation of `node_modules`, including those performed by `ng update` and `ng add`.
- * Don't use `--create-ivy-entry-points` as this will cause Node not to resolve the Ivy version of the packages correctly.
- 
+- El script `postinstall` puede correr después de cada instalación de `node_modules`, incluido las ejecutadas por `ng update` y `ng add`.
+- No uses `--create-ivy-entry-points` con este propósito, Node no resuelve la version de Ivy de los paquetes de forma correcta.
+
 </div>
 
 {@a opting-out-of-angular-ivy}
-## Opting out of Ivy in version 9
 
-In version 9, Ivy is the default.
-For compatibility with current workflows during the update process, you can choose to opt out of Ivy and continue using the previous compiler, View Engine.
+## Deshabilitando Ivy en la version 9
+
+A partir de la versión 9 de Angular, Ivy es la opción por defecto.
+Para compatibilidad con los flujos de trabajo actuales durante el proceso de actualización, puedes elegir deshabilitar Ivy y continuar usando el compilar anterior (View Engine).
 
 <div class="alert is-helpful">
 
-Before disabling Ivy, check out the debugging recommendations in the [Ivy Compatibility Guide](guide/ivy-compatibility#debugging).
+Antes de deshabilitar Ivy, asegúrate de chequear las recomendaciones de debugging en [guía de compatibilidad con Ivy](guide/ivy-compatibility#debugging).
 
 </div>
 
-To opt out of Ivy, change the `angularCompilerOptions` in your project's TypeScript configuration, most commonly located at `tsconfig.app.json` at the root of the workspace.
+Para deshabilitar Ivy, cambia la opción `angularCompilerOptions` en la configuración de tu proyecto TypeScript, la cual, se encuentra comúnmente en el archivo `tsconfig.app.json` en la raíz de tu espacio de trabajo.
 
-The value of the `enableIvy` flag is set to `true` by default, as of version 9.
+El valor de la bandera `enableIvy` se establece en `true` por defecto, en la version 9.
 
-The following example shows how to set the `enableIvy` option to `false` in order to opt out of Ivy.
+En el siguiente ejemplo puedes ver como establecer la opción `enableIvy` en `false` para no usar Ivy.
 
 <code-example language="json" header="tsconfig.app.json">
 {
@@ -114,32 +118,33 @@ The following example shows how to set the `enableIvy` option to `false` in orde
 
 <div class="alert is-important">
 
-If you disable Ivy, you might also want to reconsider whether to make AOT compilation the default for your application development, as described [above](#aot-and-ivy).
+Si deshabilitas Ivy, es posible que también desees reconsiderar si hacer compilación AOT para el desarrollo de tu aplicación, como se describe [arriba](#aot-and-ivy).
 
-To revert the compiler default, set the build option `aot: false` in the `angular.json` configuration file.
+Para revertir la compilación por defecto, puedes establecer la opción de build `aot: false` en tu archivo de configuración `angular.json`.
 
 </div>
 
-If you disable Ivy and the project uses internationalization, you can also remove the `@angular/localize` runtime component from the project's polyfills file located be default at `src/polyfills.ts`.
+Si deshabilitas Ivy y el proyecto usa internalización, también puedes remover el componente en tiempo de ejecución `@angular/localize` del archivo de polyfills del proyecto, este se encuentra localizado por defecto en `src/polyfills.ts`.
 
-To remove, delete the `import '@angular/localize/init';` line from the polyfills file.
+Para removerlo, elimina la línea `import '@angular/localize/init';` del archivo de polyfills.
 
 <code-example language="typescript" header="polyfills.ts">
 /***************************************************************************************************
- * Load `$localize` onto the global scope - used if i18n tags appear in Angular templates.
+ * Carga `$localize` en un scope global - usando el tag i18n en el Angular templates.
  */
 import '@angular/localize/init';
 </code-example>
 
 {@a using-ssr-without-angular-ivy}
+
 ### Using SSR without Ivy
 
-If you opt out of Ivy and your application uses  [Angular Universal](guide/universal) to render Angular applications on the server, you must also change the way the server performs bootstrapping.
+Si optas por no usar Ivy y tu usas [Angular Universal](guide/universal) para renderizar tu aplicación Angular en el servidor, también debe cambiar la forma en que funciona el server bootstrapping.
 
-The following example shows how you modify the `server.ts` file to provide the `AppServerModuleNgFactory` as the bootstrap module.
+El siguiente ejemplo muestra cómo debes modificar el archivo `server.ts` para proveer el `AppServerModuleNgFactory` en el módulo de arranque.
 
-* Import `AppServerModuleNgFactory` from the `app.server.module.ngfactory` virtual file.
-* Set `bootstrap: AppServerModuleNgFactory` in the `ngExpressEngine` call.
+- Importar `AppServerModuleNgFactory` desde el archivo virtual `app.server.module.ngfactory`.
+- Establecer `bootstrap: AppServerModuleNgFactory` en la llamada a `ngExpressEngine`.
 
 <code-example language="typescript" header="server.ts">
 import 'zone.js/dist/zone-node';
@@ -152,51 +157,51 @@ import { APP_BASE_HREF } from '@angular/common';
 
 import { AppServerModuleNgFactory } from './src/app/app.server.module.ngfactory';
 
-// The Express app is exported so that it can be used by serverless Functions.
+// La aplicación Express se exporta para que pueda ser utilizada por funciones sin servidor.
 export function app() {
-  const server = express();
-  const distFolder = join(process.cwd(), 'dist/ivy-test/browser');
+const server = express();
+const distFolder = join(process.cwd(), 'dist/ivy-test/browser');
 
-  // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
-  server.engine('html', ngExpressEngine({
-    bootstrap: AppServerModuleNgFactory,
-  }));
+// Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
+server.engine('html', ngExpressEngine({
+bootstrap: AppServerModuleNgFactory,
+}));
 
-  server.set('view engine', 'html');
-  server.set('views', distFolder);
+server.set('view engine', 'html');
+server.set('views', distFolder);
 
-  // Example Express Rest API endpoints
-  // app.get('/api/**', (req, res) => { });
-  // Serve static files from /browser
-  server.get('*.*', express.static(distFolder, {
-    maxAge: '1y'
-  }));
+// Ejemplo URLs de la API Express Rest
+// app.get('/api/**', (req, res) => { });
+// Serve static files from /browser
+server.get('*.*', express.static(distFolder, {
+maxAge: '1y'
+}));
 
-  // All regular routes use the Universal engine
-  server.get('*', (req, res) => {
-    res.render('index', { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
-  });
+// Todas las rutas regulares utilizan el motor Universal
+server.get('*', (req, res) => {
+res.render('index', { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
+});
 
-  return server;
+return server;
 }
 
 function run() {
-  const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4000;
 
-  // Start up the Node server
-  const server = app();
-  server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
-  });
+// Inicia el servidor de Node
+const server = app();
+server.listen(port, () => {
+console.log(`Node Express server listening on http://localhost:${port}`);
+});
 }
 
-// Webpack will replace 'require' with '__webpack_require__'
-// '__non_webpack_require__' is a proxy to Node 'require'
-// The below code is to ensure that the server is run only when not requiring the bundle.
-declare const __non_webpack_require__: NodeRequire;
-const mainModule = __non_webpack_require__.main;
+// Webpack remplazará 'require' con '**webpack_require**'
+// '**non_webpack_require**' es un proxy para Node 'require'
+// El siguiente código es para garantizar que el servidor se ejecute solo cuando no se requiera el paquete.
+declare const **non_webpack_require**: NodeRequire;
+const mainModule = **non_webpack_require**.main;
 if (mainModule && mainModule.filename === __filename) {
-  run();
+    run();
 }
 
 export * from './src/main.server';
